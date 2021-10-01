@@ -1,0 +1,24 @@
+syntax = "proto3";
+package pb;
+
+
+message UserRequest {
+    int64 id = 1;
+    string username = 2;
+    int32 limit =3;
+    int32 offset = 4;
+}
+
+message User {
+    // `xorm:"pk autoincr notnull"`
+	int64 id = 1;
+	string username = 2;
+	// `xorm:"text"`
+	string avatar = 3;
+	string fullname = 5;
+	// `xorm:"index"`
+	string phone = 6;
+	map<string, int64> apps = 7; // app and create time
+	// `xorm:"text"`
+	string address = 8;
+}
